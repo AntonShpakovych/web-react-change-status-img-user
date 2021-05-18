@@ -5,7 +5,8 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 const ContactItem = (props) => {
   console.log("ContactItem props!!!!!",props)
-    const { Avatar,Gender, Name, Phone, Email ,onDelete} = props;
+  console.log('THIS STATUS',props.Status)
+    const { Avatar,Gender, Name, Phone,Status,Email,onDelete,onStatus} = props;
     const image = `https://randomuser.me/portraits/${Gender}/${Avatar}.jpg`
     return(
         <div className="unit">
@@ -19,7 +20,7 @@ const ContactItem = (props) => {
                   <div>
                     <img src={image} alt="image" className="avatar" /> {Name}
                   </div>
-                  <div className="lab lab-warning">Friends</div>
+                  <button className="lab lab-warning" onClick = {onStatus}>{Status}</button>
                 </div>
                 <div className="field phone">
                   {Phone}
